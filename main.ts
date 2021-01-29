@@ -1,10 +1,12 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     fishy.startEffect(effects.spray, 200)
+    fishy.value += -1
     music.pewPew.play()
-    info.changeScoreBy(1)
+    info.changeScoreBy(-1)
 })
 let projectile: Sprite = null
-let fishy: Sprite = null
+let fishy: StatusBarSprite = null
+fishy.value = 10
 scene.setBackgroundColor(9)
 effects.confetti.startScreenEffect()
 fishy = sprites.create(img`
@@ -28,7 +30,7 @@ fishy = sprites.create(img`
 controller.moveSprite(fishy)
 fishy.setFlag(SpriteFlag.StayInScreen, true)
 info.startCountdown(30)
-game.onUpdateInterval(1000, function () {
+game.onUpdateInterval(500, function () {
     projectile = sprites.createProjectileFromSide(img`
         ........................
         ........................
