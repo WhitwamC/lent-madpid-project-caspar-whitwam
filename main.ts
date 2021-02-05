@@ -31,7 +31,7 @@ fishy = sprites.create(img`
 controller.moveSprite(fishy)
 fishy.setFlag(SpriteFlag.StayInScreen, true)
 info.startCountdown(30)
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(1000, function () {
     projectile = sprites.createProjectileFromSide(img`
         ........................
         ........................
