@@ -5,11 +5,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     info.changeScoreBy(-1)
 })
 let projectile: Sprite = null
-let fishy: Sprite = null
-let statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+let fishy: StatusBarSprite = null
 fishy.value = 10
+let statusbar = statusbars.create(20, 4, StatusBarKind.Health)
 scene.setBackgroundColor(9)
-info.setScore(1000)
 effects.confetti.startScreenEffect()
 fishy = sprites.create(img`
     . . . . . . . . . . . . . . . . 
